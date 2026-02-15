@@ -103,13 +103,15 @@ fadeInElements.forEach((element) => {
 // Back to Top Button
 const backToTopButton = document.getElementById("backToTop");
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 500) {
-    backToTopButton.classList.add("visible");
-  } else {
-    backToTopButton.classList.remove("visible");
-  }
-});
+if (backToTopButton) {
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      backToTopButton.classList.add("visible");
+    } else {
+      backToTopButton.classList.remove("visible");
+    }
+  });
+}
 
 // Smooth scroll is already handled by the smooth scroll anchor event listener above
 
