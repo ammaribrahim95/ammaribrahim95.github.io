@@ -100,6 +100,19 @@ fadeInElements.forEach((element) => {
   fadeInObserver.observe(element);
 });
 
+// Back to Top Button
+const backToTopButton = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 500) {
+    backToTopButton.classList.add("visible");
+  } else {
+    backToTopButton.classList.remove("visible");
+  }
+});
+
+// Smooth scroll is already handled by the smooth scroll anchor event listener above
+
 // Animate numbers on scroll (if needed in future)
 const animateValue = (element, start, end, duration) => {
   let startTimestamp = null;

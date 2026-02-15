@@ -1147,6 +1147,70 @@ body {
 }
 
 /* ============================================
+   PROJECT LINK CARD
+   ============================================ */
+
+.project-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.project-link:visited {
+  color: inherit;
+}
+
+/* ============================================
+   BACK TO TOP BUTTON
+   ============================================ */
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #000000 0%, var(--accent-primary) 100%);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-lg);
+  text-decoration: none;
+}
+
+.back-to-top:hover {
+  background: linear-gradient(135deg, #06b6d4 0%, #000000 100%);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+}
+
+/* ============================================
    ACCESSIBILITY
    ============================================ */
 
