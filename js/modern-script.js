@@ -102,10 +102,37 @@ fadeInElements.forEach((element) => {
 
 // Back to Top Button
 const backToTopButton = document.getElementById("backToTop");
+const aboutSection = document.getElementById("about");
 
-if (backToTopButton) {
+if (backToTopButton && aboutSection) {
+  // Use Intersection Observer to show button when About section is visible
+  const buttonObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        // Show button when About section or any section below it comes into view
+        if (entry.target.id === "about") {
+          if (
+            entry.isIntersecting ||
+            window.scrollY > aboutSection.offsetTop - 100
+          ) {
+            backToTopButton.classList.add("visible");
+          } else {
+            backToTopButton.classList.remove("visible");
+          }
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+      rootMargin: "-50px",
+    },
+  );
+
+  buttonObserver.observe(aboutSection);
+
+  // Also listen to scroll to ensure button stays visible when scrolling past About section
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
+    if (window.scrollY > aboutSection.offsetTop - 200) {
       backToTopButton.classList.add("visible");
     } else {
       backToTopButton.classList.remove("visible");
